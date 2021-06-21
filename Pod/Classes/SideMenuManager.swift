@@ -174,7 +174,8 @@ private extension SideMenuManager {
             }
 
             guard let menu = menu(forLeftSide: leftSide) else { return }
-            menu.present(from: topMostViewController, interactively: true)
+            let viewController = gesture.view?.window?.rootViewController?.topMostViewController ?? topMostViewController
+            menu.present(from: viewController, interactively: true)
         }
 
         activeMenu?.handleMenuPan(gesture, true)
